@@ -3,7 +3,7 @@ name: Terraform Deployment
 on:
   push:
     branches:
-      - IRF-004 # Change this to the branch you want to trigger the workflow on
+      - master # Change this to the branch you want to trigger the workflow on
     paths:
       - 'infrastructure/environment/**'
 
