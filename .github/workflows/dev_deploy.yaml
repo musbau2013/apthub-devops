@@ -31,7 +31,7 @@ jobs:
           sudo apt-get update && sudo apt-get install terraform
 
       - name: Change working directory
-        run: cd ./infrastructure/environment/src
+        run: cd infrastructure/environment/src
 
       - name: Terraform Init
         run: terraform init
