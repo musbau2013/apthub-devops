@@ -1,0 +1,42 @@
+name: Terraform Deployment
+
+on:
+  push:
+    branches:
+      - IRF-004 # Change this to the branch you want to trigger the workflow on
+    paths:
+      - 'infrastructure/environment/**'
+
+jobs:
+  deploy:
+    name: Deploy Terraform Template
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Configure AWS credentials
+        env:
+          AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+        run: |
+          aws configure set aws_access_key_id $AWS_ACCESS_KEY_ID
+          aws configure set aws_secret_access_key $AWS_SECRET_ACCESS_KEY
+
+      - name: Install Terraform
+        run: |
+          curl -fsSL https://apt.releases.hashicorp.com/gpg | sudo gpg --dearmor -o /usr/share/keyrings/com.hashicorp.terraform.gpg
+          echo "deb [signed-by=/usr/share/keyrings/com.hashicorp.terraform.gpg] https://apt.releases.hashicorp.com $(lsb_release -cs) main" | sudo tee /etc/apt/sources.list.d/hashicorp.list
+          sudo apt-get update && sudo apt-get install terraform
+
+      - name: Terraform Init
+        run: terraform init
+
+      - name: Terraform Plan
+        run: terraform plan -var "working_directory= ./infrastructure/environment/src
+
+      - name: Terraform Apply
+        run: terraform apply -auto-approve -var "working_directory=./infrastructure/environment/src"
+       # working_directory: ./infrastructure/environment
+        
