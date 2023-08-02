@@ -34,8 +34,8 @@ jobs:
         run: terraform init
 
       - name: Terraform Plan
-        run: terraform plan -var "working_directory=/infrastructure/environment/src"
+        run: terraform plan -var "working_directory=infrastructure/environment/src"
 
       - name: Terraform Apply
-        run: terraform apply -auto-approve -var "working_directory=/infrastructure/environment/src"
+        run: terraform apply -auto-approve -var "working_directory=infrastructure/environment/src"
         
