@@ -34,7 +34,7 @@ jobs:
       #   run: cd infrastructure/environment/src
 
       - name: Terraform Init 
-        run: terraform init infrastructure/environment
+        run: terraform init -chdir=infrastructure/environment
 
       - name: Terraform Plan
         run: terraform plan -var-file=infrastructure/environment
