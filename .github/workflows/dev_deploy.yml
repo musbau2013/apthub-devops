@@ -5,7 +5,7 @@ on:
     branches:
       - master # Change this to the branch you want to trigger the workflow on
     paths:
-      - 'infrastructure/environment/**'
+      - 'infrastructure/environment/'
 
 jobs:
   deploy:
