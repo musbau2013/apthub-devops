@@ -9,7 +9,7 @@ resource "aws_instance" "ec2_instance" {
 
   tags = {
     Name = "MyEC2Instance"              # Example tag; you can replace this with your desired tag
-    Environment = "new_development"          # Another example tag
+    Environment = "new_developmentsdsd"          # Another example tag
   }
 
   # key_name      = "your_key_pair_name" # Replace with the name of your existing EC2 key pair
