@@ -31,11 +31,14 @@ jobs:
           sudo apt-get update && sudo apt-get install terraform
 
       - name: Terraform Init 
+        working-directory: infrastructure/environment/src
         run: terraform init 
 
       - name: Terraform Plan
+        working-directory: infrastructure/environment/src
         run: terraform plan 
 
       - name: Terraform Apply
+        working-directory: infrastructure/environment/src
         run: terraform apply -auto-approve 
         
