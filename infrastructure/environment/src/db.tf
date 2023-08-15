@@ -33,18 +33,19 @@ resource "aws_db_parameter_group" "mysql_parameter_group" {
 }
 
 resource "aws_db_instance" "mysql" {
-  allocated_storage    = 20
-  storage_type         = "gp2"
-  engine               = "mysql"
-  engine_version       = "5.7"
-  instance_class       = "db.t3.medium"
-  db_name                 = "mydb_test"
-  username             = jsondecode(data.aws_secretsmanager_secret_version.rds_credentials.secret_string)["username"]
-  password             = jsondecode(data.aws_secretsmanager_secret_version.rds_credentials.secret_string)["password"]
-  parameter_group_name = aws_db_parameter_group.mysql_parameter_group.name
-  skip_final_snapshot  = true
-  db_subnet_group_name = aws_db_subnet_group.mysql_subnet_group.name
-  multi_az             = true # Enable Multi-AZ for high availability
+  allocated_storage      = 20
+  storage_type           = "gp2"
+  engine                 = "mysql"
+  engine_version         = "5.7"
+  instance_class         = "db.t3.medium"
+  db_name                = "mydb_test"
+  publicly_accessible    = true
+  username               = jsondecode(data.aws_secretsmanager_secret_version.rds_credentials.secret_string)["username"]
+  password               = jsondecode(data.aws_secretsmanager_secret_version.rds_credentials.secret_string)["password"]
+  parameter_group_name   = aws_db_parameter_group.mysql_parameter_group.name
+  skip_final_snapshot    = true
+  db_subnet_group_name   = aws_db_subnet_group.mysql_subnet_group.name
+  multi_az               = true                             # Enable Multi-AZ for high availability
   vpc_security_group_ids = [aws_security_group.mysql_sg.id] #[aws_security_group.mysql_sg.id]
 
   # Backup
@@ -63,7 +64,7 @@ resource "aws_db_instance" "mysql" {
 resource "aws_security_group" "mysql_sg" {
   name        = "mysql-sg"
   description = "MySQL Security Group"
-#   vpc_id      = "vpc-12345678"
+  #   vpc_id      = "vpc-12345678"
 
   ingress {
     from_port   = 3306
