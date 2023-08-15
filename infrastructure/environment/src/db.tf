@@ -38,7 +38,7 @@ resource "aws_db_instance" "mysql" {
   engine               = "mysql"
   engine_version       = "5.7"
   instance_class       = "db.t3.medium"
-  db_name                 = "mydb"
+  db_name                 = "mydb_test"
   username             = jsondecode(data.aws_secretsmanager_secret_version.rds_credentials.secret_string)["username"]
   password             = jsondecode(data.aws_secretsmanager_secret_version.rds_credentials.secret_string)["password"]
   parameter_group_name = aws_db_parameter_group.mysql_parameter_group.name
