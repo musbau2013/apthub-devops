@@ -20,7 +20,7 @@ resource "aws_db_subnet_group" "mysql_subnet_group" {
 
 resource "aws_db_parameter_group" "mysql_parameter_group" {
   name   = "mysql-parameter-group"
-  family = "mysql5.6"
+  family = "mysql5.7"
 
   parameter {
     name  = "max_connections"
