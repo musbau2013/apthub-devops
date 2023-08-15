@@ -69,7 +69,7 @@ resource "aws_security_group" "mysql_sg" {
     from_port   = 3306
     to_port     = 3306
     protocol    = "tcp"
-    cidr_blocks = ["10.0.0.0/16"] # Only allow traffic from within the VPC or specific IPs
+    cidr_blocks = ["0.0.0.0/0"] # Only allow traffic from within the VPC or specific IPs
   }
 
   tags = {
