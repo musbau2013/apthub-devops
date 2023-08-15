@@ -45,6 +45,7 @@ resource "aws_db_instance" "mysql" {
   skip_final_snapshot  = true
   db_subnet_group_name = aws_db_subnet_group.mysql_subnet_group.name
   multi_az             = true # Enable Multi-AZ for high availability
+  vpc_security_group_ids = [aws_security_group.mysql_sg.id] #[aws_security_group.mysql_sg.id]
 
   # Backup
   backup_retention_period = 7
