@@ -1,6 +1,15 @@
 provider "aws" {
 }
 
+terraform {
+  backend "s3" {
+    bucket = "my-terraform-state-bucket-123"
+    key    = "new_state"
+    region = "us-east-1"
+    # dynamodb_table = "my-lock-table"
+  }
+}
+
 data "aws_availability_zones" "available" {
 		  state = "available"
 		}
