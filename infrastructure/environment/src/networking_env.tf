@@ -33,7 +33,7 @@ resource "aws_subnet" "PublicSubnet1" {
   availability_zone = data.aws_availability_zones.available.names[0]
 
   tags = {
-    Name = "Public Subnet AZ_A"
+    Name = "Public Subnet AZ_B"
   }
 }
 
@@ -46,7 +46,7 @@ resource "aws_subnet" "PrivateSubnet1" {
   availability_zone = data.aws_availability_zones.available.names[0]
 
   tags = {
-    Name = "Private Subnet AZ A"
+    Name = "Private Subnet AZ_A"
   }
 }
 
@@ -59,7 +59,7 @@ resource "aws_subnet" "PrivateSubnet2" {
   availability_zone = data.aws_availability_zones.available.names[1]
 
   tags = {
-    Name = "Private Subnet AZ B"
+    Name = "Private Subnet AZ_B"
   }
 }
 
@@ -154,7 +154,7 @@ resource "aws_security_group" "SecurityGroup1" {
     from_port = 22
     to_port = 22
     protocol = "tcp"
-    cidr_blocks = ["172.250.89.170/32"]
+    cidr_blocks = ["172.250.89.170/32", "10.0.0.0/24",]
     description = "Allow SSH traffic"
   }
 
