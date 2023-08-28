@@ -1,9 +1,10 @@
 name: Terraform Deployment
 
 on:
+  release:
+    types: [created]
   workflow_dispatch:
-    
-    
+
 jobs:
   destroy:
     name: Destroy Terraform Infrastructure
