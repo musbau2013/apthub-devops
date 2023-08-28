@@ -33,7 +33,7 @@ resource "aws_subnet" "PublicSubnet1" {
   availability_zone = data.aws_availability_zones.available.names[0]
 
   tags = {
-    Name = "Public Subnet AZ_B_1"
+    Name = "Public Subnet AZ_B1"
   }
 }
 
