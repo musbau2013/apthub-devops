@@ -3,7 +3,7 @@ name: Terraform Deployment
 on:
   push:
     branches:
-      - destroy-branch # Change this to the branch you want to trigger the workflow on
+      - destroy-branch1 # Change this to the branch you want to trigger the workflow on
     paths:
       - 'infrastructure/environment/**'
     

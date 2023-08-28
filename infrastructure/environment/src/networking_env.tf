@@ -128,6 +128,9 @@ resource "aws_route_table_association" "AssociationForRouteTablePrivate20" {
 
 resource "aws_internet_gateway" "Igw" {
   vpc_id = aws_vpc.VPC.id
+  tags = {
+    Name = "New_IGW"
+  }
 }
 
 resource "aws_eip" "EipForNatGw1" {
