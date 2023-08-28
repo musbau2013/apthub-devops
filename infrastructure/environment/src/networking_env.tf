@@ -154,7 +154,7 @@ resource "aws_security_group" "SecurityGroup1" {
     from_port = 22
     to_port = 22
     protocol = "tcp"
-    cidr_blocks = ["172.250.89.170/32", "10.0.0.0/24",]
+    cidr_blocks = ["172.250.89.170/32",]
     description = "Allow SSH traffic"
   }
 
