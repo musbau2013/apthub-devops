@@ -7,7 +7,7 @@ terraform {
     bucket = "my-terraform-state-bucket-123"
     key    = "new_state"
     region = "us-east-1"
-    # dynamodb_table = "my-lock-table-kdfgffj"
+    # dynamodb_table = "my-lock-table-kdfkjgjjffj"
   }
 }
 
