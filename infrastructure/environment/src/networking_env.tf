@@ -31,6 +31,8 @@ resource "aws_subnet" "PublicSubnet1" {
   map_public_ip_on_launch = false
   vpc_id = aws_vpc.VPC.id
   availability_zone = data.aws_availability_zones.available.names[0]
+  map_customer_owned_ip_on_launch = true
+
 
   tags = {
     Name = "Public Subnet AZ_B_1"

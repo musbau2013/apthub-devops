@@ -4,6 +4,7 @@ resource "aws_instance" "ec2_instance" {
   instance_type = "t2.micro"              # Change this to your desired instance type
   security_groups = [aws_security_group.SecurityGroup1.id]
   subnet_id = aws_subnet.PublicSubnet1.id
+  
 
   tags = {
     Name        = "Bastion_host"       # Example tag; you can replace this with your desired tag
