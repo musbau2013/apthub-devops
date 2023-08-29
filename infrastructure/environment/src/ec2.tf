@@ -2,7 +2,7 @@
 resource "aws_instance" "ec2_instance" {
   ami           = "ami-08a52ddb321b32a8c" # Change this to your desired Amazon Machine Image (AMI)
   instance_type = "t2.micro"              # Change this to your desired instance type
-  vpc_security_group_ids = aws_security_group.SecurityGroup1.id
+  security_groups = [aws_security_group.SecurityGroup1.id]
   subnet_id = aws_subnet.PublicSubnet1.id
 
   tags = {
