@@ -28,4 +28,3 @@ jobs:
           AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
         working-directory: infrastructure/environment/src
         run: terraform destroy -auto-approve
-        
